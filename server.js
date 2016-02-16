@@ -66,10 +66,11 @@ router.route('/bears/:bear_id')
 		if(err){
 			console.log(err)
 		} else {
-			bear.name = req.body.name ? req.body.name : bear.name;//sets the name
-			bear.age = req.body.age ? req.body.age : bear.age;//sets the age
-			bear.gender = req.body.gender ? req.body.gender : bear.gender;//sets the gender
-
+			
+			bear.name = req.body.name ? req.body.name : bear.name;//ternary conditional
+			bear.age = req.body.age ? req.body.age : bear.age;//ternary conditional
+			bear.gender = req.body.gender ? req.body.gender : bear.gender;//ternary conditional
+			//bear.name = req.body.name || bear.name; is the same thing, shorter syntax
 			bear.save(function(err){
 				if (err){
 					console.log(err)
@@ -77,6 +78,16 @@ router.route('/bears/:bear_id')
 					res.json({title: 'bear updated'});
 				}
 			})
+		}
+	})
+})
+
+.delete(function(req, res){
+	Bear.remove({_id: req.params.bear_id}, function(err, bear){
+		if (err){
+			console.log(err)
+		} else {
+			res.json({title:"bear deleted successfully"})
 		}
 	})
 })
