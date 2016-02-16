@@ -23,7 +23,7 @@ router.get('/', function(req, res){
 });
 
 router.route('/bears')//.post()=>basically the same except now were chaining
-	.post(function(req, res){
+.post(function(req, res){
 
 		var bear = new Bear();//create a new instance of a bear
 		
@@ -33,15 +33,22 @@ router.route('/bears')//.post()=>basically the same except now were chaining
 
 		bear.save(function(err, bear){
 			if(err){
-				console.log(ERROR);
+				console.log(err);
 			} else {
 				res.json(bear);
 			}
 		})
 	})
-	.get(function(req, res){
-		res.json({title:"blaaaaa"})
-	});
+.get(function(req, res){
+	Bear.find(function(err, bears){
+		if(err){
+			console.log(err);
+		} else {
+			res.json(bears)
+		}
+	})
+});
+
 
 app.use('/api', router);
 
