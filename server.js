@@ -49,6 +49,17 @@ router.route('/bears')//.post()=>basically the same except now were chaining
 	})
 });
 
+router.route('/bears/:bear_id')
+	.get(function(req, res){
+		Bear.findById(req.params.bear_id, function(err, bear){
+			if(err){
+				console.log(err)
+			} else {
+				res.json(bear);
+			}
+		})
+	})
+
 
 app.use('/api', router);
 
