@@ -39,6 +39,7 @@ router.route('/bears')//.post()=>basically the same except now were chaining
 			}
 		})
 	})
+
 .get(function(req, res){
 	Bear.find(function(err, bears){
 		if(err){
@@ -50,16 +51,35 @@ router.route('/bears')//.post()=>basically the same except now were chaining
 });
 
 router.route('/bears/:bear_id')
-	.get(function(req, res){
-		Bear.findById(req.params.bear_id, function(err, bear){
-			if(err){
-				console.log(err)
-			} else {
-				res.json(bear);
-			}
-		})
+.get(function(req, res){
+	Bear.findById(req.params.bear_id, function(err, bear){
+		if(err){
+			console.log(err)
+		} else {
+			res.json(bear);
+		}
 	})
+})
 
+.put(function(req, res){
+	Bear.findById(req.params.bear_id, function(err, bear){
+		if(err){
+			console.log(err)
+		} else {
+			bear.name = req.body.name ? req.body.name : bear.name;//sets the name
+			bear.age = req.body.age ? req.body.age : bear.age;//sets the age
+			bear.gender = req.body.gender ? req.body.gender : bear.gender;//sets the gender
+
+			bear.save(function(err){
+				if (err){
+					console.log(err)
+				} else {
+					res.json({title: 'bear updated'});
+				}
+			})
+		}
+	})
+})
 
 app.use('/api', router);
 
