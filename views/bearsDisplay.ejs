@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Title Page</title>
-
-		<!-- Bootstrap CSS -->
+<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -17,19 +9,51 @@
 		<![endif]-->
 		<div class="jumbotron">
 			<div class="container">
-				<h1>Bear Cave Home</h1>
-				<p>Contents Of The Bear Cave...</p>
+				<h1>Bears Display</h1>
+				<p>Showing All of the Spirit Bears</p>
+				<p>
+					<a href="/" class="btn btn-primary btn-lg">Home</a>
+				</p>
 				<p>
 					<a href="/about" class="btn btn-primary btn-lg">About</a>
 				</p>
-				<p>
-					<a href="/bearsDisplay" class="btn btn-primary btn-lg">Display</a>
-				</p>
+		
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Gender</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(var i = 0; i < bears.length; i ++) {%>
+						<tr>
+							<td><%= bears[i].name %></td>
+							<td><%= bears[i].age %></td>
+							<td><%= bears[i].id %></td>
+						</tr>
+						<% }; %>
+					</tbody>
+					<tbody>
+						<tr>
+							<td>hernard</td>
+							<td>55</td>
+							<td>feMale</td>
+						</tr>
+					</tbody><tbody>
+						<tr>
+							<td>orfer</td>
+							<td>77</td>
+							<td>Male</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</head>
 	<body>
-		<h1 class="text-center">Where Bears Come From</h1>
+		<h1 class="text-center"></h1>
 
 		<!-- jQuery -->
 		<script src="//code.jquery.com/jquery.js"></script>

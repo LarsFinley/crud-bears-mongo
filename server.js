@@ -10,12 +10,27 @@ app.use(bodyParser.json());
 
 app.set('view engine', 'ejs');//has to be above the app.get
 
-app.get('/', function(req, res){//homepage connection
+app.get('/', function(req, res){//homepage server file
 	res.render('index',{title:"hello world"})
 });
 
-app.get('/about', function(req, res){//about page connection
-	res.render('about',{title:"About"})
+app.get('/about', function(req, res){//about page server file
+	var data = {};
+	data.title = 'About Page';
+	data.name = 'Salamander';
+	data.time = new Date();
+	res.render('about', data);
+});
+
+app.get('/bearsDisplay', function(req, res){//bearsDisplay server file
+	Bear.find(function(err, bears){
+		if(err){
+			console.log(err);
+		} else {
+		res.render('bearsDisplay', {bears:bears})		
+		}
+	})
+	
 });
 
 
