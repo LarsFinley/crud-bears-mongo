@@ -26,13 +26,13 @@
 							<th>Gender</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="bearTable">
 						<% for(var i = 0; i < bears.length; i ++) {%>
 						<tr id="<%= bears[i]._id %>">
 							<td><%= bears[i].name %></td>
 							<td><%= bears[i].age %></td>
 							<td><%= bears[i].gender %></td>
-							<td><button type="button" class="btn btn-danger deleteBear">Hibernate Bear</button></td>
+							<td><button class="btn btn-danger deleteBear">Hibernate Bear</button></td>
 						</tr>
 						<% }; %>
 					</tbody>
@@ -52,24 +52,24 @@
 				</table>
 			</div>
 		</div>
-		<div class="form lars">
+		<div class="lars">
 			<div class="container-fluid">							
-				<form action="/api/bears" method="POST" class="form-inline" role="form">
+				<form class="form-inline" role="form">
 					<div class="form-group">
 						<label class="sr-only" for=""></label>
-						<input type="text" name="name" class="form-control" id="" placeholder="Bear Name">
+						<input type="text" id="name" name="name" class="form-control" id="" placeholder="Bear Name">
 					</div>
 					<div class="form-group">
 						<label class="sr-only" for=""></label>
-						<input type="text" name="age" class="form-control" id="" placeholder="Bear Age">
+						<input type="text" id="age" name="age" class="form-control" id="" placeholder="Bear Age">
 					</div>
 					<div class="form-group">
 						<label class="sr-only" for=""></label>
-						<input type="text" name="gender" class="form-control" id="" placeholder="Bear Gender">
+						<input type="text" id="gender" name="gender" class="form-control" id="" placeholder="Bear Gender">
 					</div>
 		
 			
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" id="addBear" class="btn btn-primary">Submit</button>
 				</form>
 			</div>
 	</div>			
