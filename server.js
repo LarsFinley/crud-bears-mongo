@@ -8,6 +8,8 @@ mongoose.connect('mongodb://localhost/animals');
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
+app.use(express.static('public'));//config node to know what to do with all these files
+
 app.set('view engine', 'ejs');//has to be above the app.get
 
 app.get('/', function(req, res){//homepage server file

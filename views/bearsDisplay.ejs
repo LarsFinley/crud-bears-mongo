@@ -20,7 +20,7 @@
 		
 				<table class="table table-striped table-hover">
 					<thead>
-						<tr>
+						<tr id="">
 							<th>Name</th>
 							<th>Age</th>
 							<th>Gender</th>
@@ -28,15 +28,16 @@
 					</thead>
 					<tbody>
 						<% for(var i = 0; i < bears.length; i ++) {%>
-						<tr>
+						<tr id="<%= bears[i]._id %>">
 							<td><%= bears[i].name %></td>
 							<td><%= bears[i].age %></td>
-							<td><%= bears[i].id %></td>
+							<td><%= bears[i].gender %></td>
+							<td><button type="button" class="btn btn-danger deleteBear">Hibernate Bear</button></td>
 						</tr>
 						<% }; %>
 					</tbody>
 					<tbody>
-						<tr>
+						<tr id=>
 							<td>hernard</td>
 							<td>55</td>
 							<td>feMale</td>
@@ -51,6 +52,27 @@
 				</table>
 			</div>
 		</div>
+		<div class="form lars">
+			<div class="container-fluid">							
+				<form action="/api/bears" method="POST" class="form-inline" role="form">
+					<div class="form-group">
+						<label class="sr-only" for=""></label>
+						<input type="text" name="name" class="form-control" id="" placeholder="Bear Name">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for=""></label>
+						<input type="text" name="age" class="form-control" id="" placeholder="Bear Age">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for=""></label>
+						<input type="text" name="gender" class="form-control" id="" placeholder="Bear Gender">
+					</div>
+		
+			
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+	</div>			
 	</head>
 	<body>
 		<h1 class="text-center"></h1>
@@ -60,6 +82,6 @@
 		<!-- Bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
- 		<script src="Hello World"></script>
+ 		<script src="app.js"></script>
 	</body>
 </html>
